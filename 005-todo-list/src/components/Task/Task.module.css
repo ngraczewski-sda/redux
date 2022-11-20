@@ -1,0 +1,7 @@
+.task {
+  display: flex;
+  padding: var(--padding);
+  border: var(--border);
+  border-radius: var(--border-radius);
+  justify-content: space-between;
+}

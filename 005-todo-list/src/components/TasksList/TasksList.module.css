@@ -1,0 +1,13 @@
+.tasksListContainer {
+  padding: var(--padding);
+}
+
+.tasksListHeader {
+  padding: var(--padding) 0;
+}
+
+.tasksList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--padding);
+}

@@ -15,6 +15,14 @@ document.querySelector(".counter-increment")?.addEventListener("click", () => {
   store.dispatch(actions.increment(1));
 });
 
-document
-  .querySelector(".counter-decrement")
-  ?.addEventListener("click", () => {});
+document.querySelector(".counter-decrement")?.addEventListener("click", () => {
+  store.dispatch(actions.decrement(1));
+});
+
+document.querySelector(".counter-reset")?.addEventListener("click", () => {
+  store.dispatch(actions.reset());
+});
+
+document.querySelector(".counter-random")?.addEventListener("click", () => {
+  store.dispatch(actions.random());
+});
