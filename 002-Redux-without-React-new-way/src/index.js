@@ -1,17 +1,20 @@
 import "./index.css";
 import { counter } from "./counter";
-import { actions, store } from "./store";
+import { store, actions } from "./store";
 
 document.body.innerHTML = counter;
 
 store.subscribe(() => {
-  document.querySelector(".counter").innerText = store.getState();
+  const counter = document.querySelector(".counter");
+  if (counter) {
+    counter.innerHTML = store.getState();
+  }
 });
 
 document.querySelector(".counter-increment")?.addEventListener("click", () => {
-  store.dispatch(actions.increment());
+  store.dispatch(actions.increment(1));
 });
 
-document.querySelector(".counter-decrement")?.addEventListener("click", () => {
-  store.dispatch(actions.decrement());
-});
+document
+  .querySelector(".counter-decrement")
+  ?.addEventListener("click", () => {});
