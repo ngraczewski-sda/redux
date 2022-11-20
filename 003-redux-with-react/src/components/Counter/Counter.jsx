@@ -2,21 +2,23 @@ import React from "react";
 import styles from "./Counter.module.css";
 import { Button } from "../Button/Button";
 import { useDispatch, useSelector } from "react-redux";
-import { counterActions } from "../../redux/counterSlice";
+import { counterActions, counterSelectors } from "../../redux/counterSlice";
+import { store } from "../../redux/store";
 
 export const Counter = () => {
-  const counter = useSelector((state) => state.counter);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); //store.dispatch
+  const counter = useSelector(counterSelectors.selectCounter);
 
-  const increment = () => dispatch(counterActions.increment());
-  const decrement = () => dispatch(counterActions.decrement());
+  const handleIncrementClick = () => {
+    dispatch(counterActions.increment(1));
+  };
 
   return (
     <div className={styles.container}>
       <div className={styles.counter}>{counter}</div>
       <div>
-        <Button onClick={increment}>Increment</Button>
-        <Button onClick={decrement}>Decrement</Button>
+        <Button onClick={handleIncrementClick}>Increment</Button>
+        {/* <Button onClick={decrement}>Decrement</Button> */}
       </div>
     </div>
   );
