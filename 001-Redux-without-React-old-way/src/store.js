@@ -3,6 +3,7 @@ import { createStore } from "redux";
 // action type
 const INCREMENT = "action-types/increment";
 const DECREMENT = "action-types/decrement";
+const RESET = "action-types/reset";
 
 // action creators
 const increment = (increase) => ({
@@ -15,13 +16,13 @@ const decrement = (decrease) => ({
   payload: decrease,
 });
 
-// action
-const incrementAction = {
-  type: INCREMENT,
-  payload: 5,
-};
+const reset = () => ({
+  type: RESET,
+});
 
-const reducer = (state = 0, action) => {
+const initialState = 5;
+
+const reducer = (state = initialState, action) => {
   const { type, payload } = action;
 
   if (type === INCREMENT) {
@@ -32,9 +33,19 @@ const reducer = (state = 0, action) => {
     return state - payload;
   }
 
+  if (type === RESET) {
+    return initialState;
+  }
+
   return state;
 };
 
 const store = createStore(reducer);
 
-export { store, incrementAction, INCREMENT, increment, decrement };
+const actions = {
+  increment,
+  decrement,
+  reset,
+};
+
+export { store, actions };
