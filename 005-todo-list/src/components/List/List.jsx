@@ -2,7 +2,7 @@ import { classNames } from "../../utils/classNames";
 import styles from "./List.module.css";
 
 export const List = ({ className, children, ordered, emptyMessage }) => {
-  if (!children?.length) {
+  if (!children || children?.length === 0) {
     return <div className={styles.emptyMessage}>{emptyMessage}</div>;
   }
   if (ordered) {
