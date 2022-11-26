@@ -1,6 +1,8 @@
 import { Button } from "components/Button/Button";
 import { Input } from "components/Input/Input";
+import { usersActions } from "features/users/redux/usersSlice";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import styles from "./NewUser.module.css";
 
 export const NewUser = () => {
@@ -11,12 +13,13 @@ export const NewUser = () => {
     setUsername(newUsername);
   };
 
+  const dispatch = useDispatch();
   const handleAddClick = () => {
     if (!username) {
       return;
     }
 
-    alert(username);
+    dispatch(usersActions.addUser(username));
   };
 
   return (
