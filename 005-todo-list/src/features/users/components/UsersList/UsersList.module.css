@@ -1,0 +1,27 @@
+.container {
+  composes: section from "../../../../css/section.css";
+  grid-area: users-list;
+}
+
+.header {
+  composes: header from "../../../../css/header.css";
+  margin-top: 0;
+}
+
+.item {
+  position: relative;
+}
+
+.item:after {
+  position: absolute;
+  content: "\2713";
+  display: inline-block;
+  color: var(--primary-color);
+  right: var(--padding);
+  transition: opacity var(--transition) var(--transition-time);
+  opacity: 0;
+}
+
+.item.active:after {
+  opacity: 1;
+}

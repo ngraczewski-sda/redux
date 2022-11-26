@@ -1,0 +1,9 @@
+.container {
+  composes: section from "../../../../css/section.css";
+  grid-area: tasks-list;
+}
+
+.header {
+  composes: header from "../../../../css/header.css";
+  margin-top: 0;
+}

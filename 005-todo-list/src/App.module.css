@@ -1,0 +1,20 @@
+.app {
+  max-width: 1000px;
+  flex: 1 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr var(--padding) 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "header header header header header"
+    "new-task new-task new-task . new-user"
+    "tasks-list tasks-list tasks-list . users-list"
+    "tasks-list tasks-list tasks-list . users-list"
+    "tasks-summary tasks-summary tasks-summary . users-list";
+  gap: var(--padding);
+}
+
+.appHeader {
+  grid-area: header;
+  composes: header from "./css/header.css";
+  justify-self: center;
+}

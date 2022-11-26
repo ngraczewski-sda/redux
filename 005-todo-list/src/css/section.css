@@ -1,0 +1,5 @@
+.section {
+  background-color: var(--secondary-color);
+  border-radius: var(--border-radius);
+  padding: var(--padding);
+}

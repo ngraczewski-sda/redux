@@ -1,7 +1,12 @@
-.task {
+.listItem {
   display: flex;
   padding: var(--padding);
   border: var(--border);
   border-radius: var(--border-radius);
+  background-color: white;
   justify-content: space-between;
+}
+
+.listItem + .listItem {
+  margin-top: var(--padding);
 }

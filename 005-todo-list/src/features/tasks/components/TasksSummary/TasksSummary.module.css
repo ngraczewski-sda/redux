@@ -1,0 +1,4 @@
+.tasksSummary {
+  composes: section from "../../../../css/section.css";
+  grid-area: tasks-summary;
+}

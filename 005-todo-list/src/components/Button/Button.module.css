@@ -1,0 +1,18 @@
+.button {
+  padding: var(--padding) calc(2 * var(--padding));
+  color: white;
+  font-weight: bold;
+  background-color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  transition: filter var(--transition) var(--transition-time);
+}
+
+.button:hover {
+  filter: brightness(95%);
+}
+
+.button:active {
+  filter: brightness(90%);
+}

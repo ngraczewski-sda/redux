@@ -1,0 +1,14 @@
+.container {
+  grid-area: new-user;
+  composes: section from "../../../../css/section.css";
+  display: flex;
+  flex-direction: column;
+  gap: var(--padding);
+  align-items: flex-start;
+}
+
+.header {
+  composes: header from "../../../../css/header.css";
+  margin: 0;
+  color: var(--primary-color);
+}

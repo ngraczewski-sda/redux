@@ -1,0 +1,16 @@
+.header {
+  color: var(--primary-color);
+  position: relative;
+  width: fit-content;
+}
+
+.header:after {
+  position: absolute;
+  display: block;
+  content: "";
+  background-color: var(--primary-color);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+}
