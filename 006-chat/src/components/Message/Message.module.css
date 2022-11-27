@@ -1,0 +1,23 @@
+.container {
+  padding: 20px;
+  color: black;
+  border-radius: 25px;
+}
+
+.content {
+  font-size: 1rem;
+}
+
+.author,
+.author:before {
+  font-size: 0.75rem;
+}
+
+.author {
+  margin-top: 10px;
+  text-align: end;
+}
+
+.author:before {
+  content: "by ";
+}
