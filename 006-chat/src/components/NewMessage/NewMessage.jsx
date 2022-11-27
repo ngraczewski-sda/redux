@@ -29,8 +29,6 @@ export const NewMessage = ({ className }) => {
     setContent("");
   };
 
-  const postError = useSelector(messagesSelectors.selectPostError);
-
   return (
     <form
       className={classNames(styles.container, className)}
@@ -42,7 +40,7 @@ export const NewMessage = ({ className }) => {
           value={content}
           onChange={handleContentChange}
         />
-        {postError && <div className={styles.error}>{postError}</div>}
+        {/* {postError && <div className={styles.error}>{postError}</div>} */}
       </div>
 
       <button className={styles.button} type="submit">
