@@ -1,10 +1,9 @@
 import { NewMessage } from "components/NewMessage/NewMessage";
 import { useMessagesPoll } from "hooks/useMessagesPoll";
 import { useScrollToBottomOnChange } from "hooks/useScrollToBottomOnChange";
-import { memo } from "react";
 import styles from "./Chat.module.css";
 
-export const Chat = memo(() => {
+export const Chat = () => {
   const messages = []; // podmień na selektor
   const ref = useScrollToBottomOnChange(messages?.length);
 
@@ -21,4 +20,4 @@ export const Chat = memo(() => {
       </div>
     </div>
   );
-});
+};

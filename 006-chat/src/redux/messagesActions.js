@@ -1,25 +1,27 @@
 import { getMessages } from "api/messagesApi";
 import { messagesSlice } from "./messagesSlice";
 
-const fetchMessages = () => async (dispatch) => {
-  try {
-    dispatch(messagesSlice.actions.fetchMessagesStart());
+const fetchMessages = () => {
+  return async (dispatch) => {
+    try {
+      dispatch(messagesSlice.actions.fetchMessagesStart());
 
-    const response = await getMessages();
+      const response = await getMessages();
 
-    if (response.status === 200) {
+      if (response.status === 200) {
+        dispatch(
+          messagesSlice.actions.fetchMessagesSuccess(await response.json())
+        );
+        return;
+      }
+
+      throw new Error();
+    } catch (e) {
       dispatch(
-        messagesSlice.actions.fetchMessagesSuccess(await response.json())
+        messagesSlice.actions.fetchMessagesFailure({ error: "Unknown error" })
       );
-      return;
     }
-
-    throw new Error();
-  } catch (e) {
-    dispatch(
-      messagesSlice.actions.fetchMessagesFailure({ error: "Unknown error" })
-    );
-  }
+  };
 };
 
 export const messagesActions = {
