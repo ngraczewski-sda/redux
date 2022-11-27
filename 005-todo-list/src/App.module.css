@@ -2,7 +2,7 @@
   max-width: 1000px;
   flex: 1 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr var(--padding) 1fr;
+  grid-template-columns: 0 0 0 var(--padding) 1fr;
   grid-template-rows: auto;
   grid-template-areas:
     "header header header header header"
