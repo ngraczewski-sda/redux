@@ -1,0 +1,53 @@
+.container {
+  display: grid;
+  grid-template-columns: 2fr 1fr 8fr;
+  grid-template-rows: 100px 50px;
+  gap: 10px;
+  grid-template-areas:
+    "input input input"
+    "button . author";
+}
+
+.input {
+  grid-area: input;
+  display: flex;
+  flex-direction: column;
+  align-content: stretch;
+  gap: 10px;
+}
+
+.input textarea {
+  flex: 1 1 auto;
+}
+.input textarea,
+.author {
+  padding: 20px;
+  background-color: white;
+  border: none;
+  border-radius: 25px;
+  resize: none;
+  font-size: 1rem;
+}
+
+.error {
+  color: red;
+}
+
+.button {
+  grid-area: button;
+  background-color: white;
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.author {
+  grid-area: author;
+  display: flex;
+}
+
+.by {
+  place-self: center;
+  font-weight: bold;
+}
