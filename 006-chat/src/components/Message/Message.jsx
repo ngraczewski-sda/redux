@@ -1,8 +1,12 @@
+import { useSelector } from "react-redux";
+import { colorsSelectors } from "redux/colorsSelectors";
 import { classNames } from "utils/classNames";
 import styles from "./Message.module.css";
 
 export const Message = ({ content, user, className }) => {
-  const color = "white";
+  const color = useSelector((state) =>
+    colorsSelectors.selectUserColor(state, user)
+  );
 
   return (
     <div

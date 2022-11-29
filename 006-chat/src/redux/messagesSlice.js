@@ -19,6 +19,13 @@ export const messagesSlice = createSlice({
       state.fetchError = action.payload;
       state.messages = undefined;
     },
+    postMessageStart: (state) => {
+      state.postError = undefined;
+    },
+    postMessageSuccess: () => {},
+    postMessageFailure: (state, action) => {
+      state.postError = action.payload.error;
+    },
   },
 });
 

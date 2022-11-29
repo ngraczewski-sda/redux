@@ -1,12 +1,13 @@
-import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { messagesActions } from "redux/messagesActions";
 import { messagesSelectors } from "redux/messagesSelectors";
 import { classNames } from "utils/classNames";
 import styles from "./NewMessage.module.css";
 
-export const NewMessage = ({ className }) => {
+export const NewMessage = ({ className, user, setUser }) => {
   const [content, setContent] = useState("");
-  const [user, setUser] = useState("");
+  const messageRef = useRef();
 
   const handleContentChange = (e) => {
     setContent(e.target.value);
@@ -16,18 +17,17 @@ export const NewMessage = ({ className }) => {
     setUser(e.target.value);
   };
 
+  const dispatch = useDispatch();
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    alert(
-      JSON.stringify({
-        user,
-        content,
-      })
-    );
+    dispatch(messagesActions.postMessage({ content, user }));
 
     setContent("");
+    messageRef.current.focus();
   };
+
+  const postError = useSelector(messagesSelectors.selectPostError);
 
   return (
     <form
@@ -36,11 +36,12 @@ export const NewMessage = ({ className }) => {
     >
       <div className={styles.input}>
         <textarea
+          ref={messageRef}
           className={styles.input}
           value={content}
           onChange={handleContentChange}
         />
-        {/* {postError && <div className={styles.error}>{postError}</div>} */}
+        {postError && <div className={styles.error}>{postError}</div>}
       </div>
 
       <button className={styles.button} type="submit">
